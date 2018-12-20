@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Catalog</title>
+    </head>
+    <body>
+        <h2>Edit item</h2>
+        <form action="{{ url_for('editItem', catalog_name = catalog_name, item_name = item_name) }}" method="post">
+            <p>Name:</p>
+            <input type="text" name="name" placeholder="{{item.name}}">
+            <input type="submit" value="Edit">
+            <a href="{{ url_for('showItem', catalog_name = catalog_name) }}"> Cancel</a>
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Catalog</title>
+    </head>
+    <body>
+        <h2>Items</h2>
+        <ul>
+            {% for i in items %}
+            <li><a href= "{{url_for('showItemInfo',catalog_name= i.catalog.name , item_name = i.name)}}">{{i.name}}</a><br>
+                <a href="{{url_for('editItem', catalog_name= i.catalog.name, item_name = i.name)}}"> Edit </a>
+                <a href="{{url_for('deleteItem', catalog_name= i.catalog.name, item_name = i.name)}}"> Delete </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <ul>
+            {% for i in poster %}
+            <li><img src="{{i}}"></li>
+            {% endfor %}
+        </ul>
+        <a href="{{url_for('newItem',catalog_name= catalog_name)}}"> Create new item </a><br><br>
+
+        <a href="{{url_for('showCatalog')}}">Go to the main page</a>
+
+    </body>
+</html>
